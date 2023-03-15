@@ -1,4 +1,4 @@
-# ecommerce_games
+# ecommerce_games - Games Fun
 Projeto de TCC - Ecommerce de jogos de mídia física para consoles em geral
 
 Tela inicial<br>
