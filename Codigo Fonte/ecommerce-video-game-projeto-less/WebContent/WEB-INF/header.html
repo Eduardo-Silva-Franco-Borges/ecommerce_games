@@ -1,0 +1,101 @@
+
+
+
+<div class="site-header">
+    <div class="container" >
+        <a href="index.jsp" id="branding">
+            <img src="images/logo.png" alt="" class="logo">
+            <div class="logo-text">
+                <h1 class="site-title">Games Fun</h1>
+                <small class="site-description">A divers&atilde;o em suas m&atilde;os</small>
+            </div>
+        </a> <!-- #branding -->
+
+        <div class="right-section pull-right">
+            <a href="home" class="cart"> Home</a>
+            <a href="about.jsp" class="cart">Sobre</a>
+            <a href="products.jsp" class="cart">Produtos</a>
+            <a href="CtrlCliente?operacao=pedidos" class="cart">Pedidos</a>
+            <a href="CtrlCliente?operacao=analise_pedidos" class="cart">An&aacute;lise de Pedidos</a>
+            <a href="CtrlCliente?operacao=meus_dados" class="cart">Meus dados</a>
+            
+            <a href="#"  class="login-button">Login/Register</a>
+            <a href="cart.jsp" class="login-button"><i class="icon-cart-trolley"></i> [1]</a>
+            
+        </div> <!-- .right-section -->
+
+        <div class="main-navigation">
+            <button class="toggle-menu"><i class="fa fa-bars"></i></button>
+            <ul class="menu">
+                <li class="menu-item home current-menu-item"><a href="index.jsp"><i class="icon-home"></i></a></li>
+                <li class="menu-item"><a href="products.jsp">Jogos Playstation</a></li>
+                <li class="menu-item"><a href="products.jsp">Jogos XBOX</a></li>
+                <li class="menu-item"><a href="products.jsp">Jogos Nintendo</a></li>
+                
+            </ul> <!-- .menu -->
+            
+
+            <div class="mobile-navigation"></div> <!-- .mobile-navigation -->
+        </div> <!-- .main-navigation -->
+    </div> <!-- .container -->
+    <br><br><br><br>
+</div> <!-- .site-header -->
+
+
+<script type="text/javascript">
+(function($, document, window){
+	
+	$(document).ready(function(){
+
+		// Cloning main navigation for mobile menu
+		$(".mobile-navigation").append($(".main-navigation .menu").clone());
+
+		// Mobile menu toggle 
+		$(".toggle-menu").click(function(){
+			$(".mobile-navigation").slideToggle();
+		});
+
+		$(".home-slider").flexslider({
+			controlNav: true,
+			directionNav: false
+		});
+
+		$(".login-button").on("click",function(){
+			$(".overlay").fadeIn();
+			$(".auth-popup").toggleClass("active");
+		});
+
+		$(".close, .overlay").on("click",function(){
+			$(".overlay").fadeOut();
+			$(".popup").toggleClass("active");
+		});
+
+		initLightbox({
+	    	selector : '.product-images a',
+	    	overlay: true,
+	    	closeButton: true,
+	    	arrow: true
+	    });
+
+
+		$(document).keyup(function(e) {
+			if( $(".popup").hasClass("active")){
+		  		if (e.keyCode === 27) {
+		  			$(".overlay").fadeOut();
+					$(".popup").toggleClass("active");
+		  		}   
+			}
+		});
+	});
+
+	$(window).load(function(){
+
+	});
+
+})(jQuery, document, window);
+</script>
+
+
+
+
+
